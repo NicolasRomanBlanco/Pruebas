@@ -1,4 +1,4 @@
-package repasopoo;
+package c.repasopoo;
 
 import java.awt.Toolkit;
 import java.awt.event.*;

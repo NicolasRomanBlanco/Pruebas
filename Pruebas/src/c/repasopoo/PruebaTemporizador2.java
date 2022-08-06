@@ -1,4 +1,4 @@
-package repasopoo;
+package c.repasopoo;
 
 import javax.swing.*;
 
