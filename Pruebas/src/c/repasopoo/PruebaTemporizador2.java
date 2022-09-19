@@ -16,9 +16,9 @@ public class PruebaTemporizador2 {
 		// TODO Auto-generated method stub
 		
 		
-		Reloj mireloj=new Reloj(3000,true);
+		Reloj mireloj=new Reloj();
 		
-		mireloj.enMarcha();
+		mireloj.enMarcha(3000,true);
 		
 		JOptionPane.showMessageDialog(null, "Pulsa aceptar para terminar");
 		
@@ -32,14 +32,33 @@ public class PruebaTemporizador2 {
 
 class Reloj{
 	
-	public Reloj(int intervalo, boolean sonido) {
-		
-		this.intervalo=intervalo;
-		this.sonido=sonido;
-		
-	}
+//	public Reloj(int intervalo, boolean sonido) {
+//		
+//		this.intervalo=intervalo;
+//		this.sonido=sonido;
+//		
+//	}
+//	
 	
-	public void enMarcha() {
+	//Sonido es final porque la clase interna esta accediendo a ella mientras que intervalo no se usa en la clase interna por lo que no es final
+	
+	public void enMarcha(int intervalo,final boolean sonido) {
+		
+		//clase interna local= clase declarada dentro de un metodo sin modificador de acceso
+		class DameLaHora2 implements ActionListener{
+			
+			public void actionPerformed(ActionEvent e) {
+				
+				Date ahora=new Date();
+				
+				System.out.println("Te pongo la hora cada 3s: "+ ahora);
+				
+				if(sonido) {
+					
+					Toolkit.getDefaultToolkit().beep();
+				}
+			}
+		}
 		
 		ActionListener oyente= new DameLaHora2();
 		
@@ -48,23 +67,8 @@ class Reloj{
 		mitemporizador.start();
 	}
 	
-	private int intervalo;
+
 	
-	private boolean sonido;
-	
-	private class DameLaHora2 implements ActionListener{
-		
-		public void actionPerformed(ActionEvent e) {
-			
-			Date ahora=new Date();
-			
-			System.out.println("Te pongo la hora cada 3s: "+ ahora);
-			
-			if(sonido) {
-				
-				Toolkit.getDefaultToolkit().beep();
-			}
-		}
-	}
+
 	
 }
