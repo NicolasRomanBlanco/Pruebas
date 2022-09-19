@@ -1,5 +1,7 @@
 package graficos;
 
+import java.awt.Frame;
+
 import javax.swing.*;
 
 public class CreandoMarcos {
@@ -20,7 +22,19 @@ class miMarco extends JFrame {
 	
 	public miMarco(){
 		
-		setSize(500, 300);
+		//setSize(500, 300);
+		//setLocation(500, 300);
+		
+		//pos x pos y, size x, size y
+		setBounds(500,300, 550,250);
+		
+		//se puede modificar el size 
+		//setResizable(true);
+		
+		//pantalla completa
+		//setExtendedState(Frame.MAXIMIZED_BOTH);
+		
+		setTitle("Mi ventana");
 		
 	}
 	
